@@ -2,12 +2,12 @@ package com.David.IncidentsHotelBackend.exception;
 
 import java.time.LocalDateTime;
 
-public class ErrorResponse {
+public class ApiErrorResponse {
     private final String message;
     private final int status;
     private final LocalDateTime timestamp;
 
-    public ErrorResponse(String message, int status) {
+    public ApiErrorResponse(String message, int status) {
         this.message = message;
         this.status = status;
         this.timestamp = LocalDateTime.now();

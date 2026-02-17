@@ -48,9 +48,10 @@ public class IncidentServiceImpl implements IncidentService{
 		}
 
 	@Override
-	public IncidentResponseDto createIncident(UUID hotelId, IncidentRequestDto incidentRequestDto) {
+	public IncidentResponseDto createIncident(UUID hotelId, 
+			IncidentRequestDto incidentRequestDto) {
 		
-		Hotel hotel = hotelRepository.findById(incidentRequestDto.hotelId())
+		Hotel hotel = hotelRepository.findById(hotelId)
 				.orElseThrow(()-> new ResourceNotFoundException("Hotel Not found"));
 		
 		Incident incident = new Incident();
@@ -65,6 +66,7 @@ public class IncidentServiceImpl implements IncidentService{
 		
 		return mapIncidentResponseDto(savedIncident);
 	}
+	
 	
 	@Override
 	public IncidentResponseDto updateStatusIncident(UUID hotelId, UUID id, UpdateIncidentStatusRequest statusRequest)  {
